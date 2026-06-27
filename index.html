@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- فيديو الخلفية -->
+    <!-- فيديو الخلفية متصل مباشرة ويعمل فوراً -->
     <video autoplay loop muted playsinline id="bg-video">
         <source src="https://assets.mixkit.co/videos/preview/mixkit-tunnel-of-futuristic-green-digital-data-34410-large.mp4" type="video/mp4">
     </video>
@@ -17,27 +17,36 @@
     <audio id="hack-laugh" src="https://www.soundjay.com/human/sounds/laughter-comic-1.mp3" preload="auto"></audio>
     <audio id="typing-sound" src="https://www.soundjay.com/communication/sounds/typewriter-key-1.mp3" loop preload="auto"></audio>
 
-    <!-- الشاشة السوداء: أضفنا أمر الضغط هنا مباشرة لتفادي أي مشكلة -->
-    <div id="click-anywhere" onclick="startHack()">
-        <p>CLICK ANYWHERE TO INITIALIZE SYSTEM</p>
-    </div>
+    <!-- المحتوى الرئيسي يظهر فوراً بتنسيق احترافي -->
+    <div class="container">
+        
+        <!-- الصورة في المنتصف تماماً بدون أي خلفية مضيئة أو إطار أخضر -->
+        <div class="avatar-container">
+            <img src="image_46b83e.png" alt="Cyber Security" class="profile-img">
+        </div>
 
-    <!-- المحتوى الرئيسي للهاك -->
-    <div class="container" id="main-content">
-        <!-- الصورة المرفقة image_4712b8.png في المنتصف بدون خلفية مضيئة -->
-        <img src="image_46b83e.png" alt="Logo" class="profile-img">
-
+        <!-- عنوان غليتش متطور -->
         <h1 class="glitch" data-text="SYSTEM INJECTED">SYSTEM INJECTED</h1>
         
+        <!-- الشاشة البرمجية المحسّنة جمالياً -->
         <div class="terminal">
-            <p class="console-line">> Connecting to secure server...</p>
-            <p class="console-line">> Bypassing firewall... [SUCCESS]</p>
-            <p class="console-line">> Fetching your live credentials...</p>
-            
-            <div class="info-box" id="info-box">
-                <p><span class="label">IP Address:</span> <span id="user-ip" class="target-data">Loading...</span></p>
-                <p><span class="label">System OS:</span> <span id="user-os" class="target-data">Checking...</span></p>
-                <p><span class="label">Status:</span> <span class="danger">COMPROMISED 100%</span></p>
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="title">console@root: ~</span>
+            </div>
+            <div class="terminal-body">
+                <p class="console-line">> Initializing cyber protocol...</p>
+                <p class="console-line">> Bypassing proxy firewall... [SUCCESS]</p>
+                <p class="console-line">> Extracting real-time victim data...</p>
+                
+                <!-- الصندوق النهائي للمعلومات الصحيحة -->
+                <div class="info-box" id="info-box">
+                    <div class="info-row"><span class="label">TARGET IP:</span> <span id="user-ip" class="target-data">Loading...</span></div>
+                    <div class="info-row"><span class="label">OPERATING SYSTEM:</span> <span id="user-os" class="target-data">Checking...</span></div>
+                    <div class="info-row"><span class="label">SECURITY STATUS:</span> <span class="danger">COMPROMISED (100%)</span></div>
+                </div>
             </div>
         </div>
     </div>
