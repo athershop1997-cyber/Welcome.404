@@ -13,7 +13,6 @@ body, html {
     color: #00ff00;
 }
 
-/* خلفية الفيديو */
 #bg-video {
     position: fixed;
     right: 0;
@@ -22,43 +21,25 @@ body, html {
     min-height: 100%;
     z-index: -1;
     object-fit: cover;
-    filter: brightness(0.4);
+    filter: brightness(0.3);
 }
 
-/* شاشة البدء */
-#overlay {
+/* نص ترحيبي شفاف يختفي فوراً يضمن تفاعل المستخدم لتشغيل الصوت */
+#click-anywhere {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.9);
     z-index: 999;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-}
-
-.start-btn {
-    padding: 20px 40px;
-    border: 2px solid #00ff00;
-    background: transparent;
+    background: rgba(0,0,0,0.85);
     color: #00ff00;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-shadow: 0 0 10px #00ff00;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
-    border-radius: 5px;
-    transition: 0.3s;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
 }
 
-.start-btn:hover {
-    background: #00ff00;
-    color: black;
-    box-shadow: 0 0 25px #00ff00;
-}
-
-/* الحاوية الرئيسية */
 .container {
-    display: none; /* تظهر بعد الضغط */
+    display: none; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -68,65 +49,47 @@ body, html {
     z-index: 2;
 }
 
-/* تصميم الصورة في المنتصف */
+/* الصورة في المنتصف بدون أي إضاءة خلفية أو إطار أخضر */
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    border: 3px solid #00ff00;
-    box-shadow: 0 0 20px #00ff00;
     margin-bottom: 20px;
     object-fit: cover;
 }
 
-/* تأثير النص المتحرك (Glitch) */
 .glitch {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: bold;
-    letter-spacing: 5px;
-    margin-bottom: 20px;
-    position: relative;
-    text-shadow: 0 0 10px #00ff00;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 8px #00ff00;
 }
 
-/* الشاشة البرمجية */
 .terminal {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.85);
     border: 1px solid #00ff00;
-    padding: 20px;
+    padding: 25px;
     width: 100%;
-    max-width: 600px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    max-width: 650px;
+    border-radius: 6px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
     text-align: left;
 }
 
-.typing {
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-    opacity: 0;
-    animation: type 2s steps(40, end) forwards;
-    margin-bottom: 10px;
+.console-line {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    display: none; /* يتم التحكم بالظهور تدريجياً عبر الجافاسكريبت */
 }
 
 .info-box {
-    margin-top: 15px;
-    padding: 10px;
+    margin-top: 20px;
+    padding-top: 15px;
     border-top: 1px dashed #00ff00;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
+    display: none;
 }
 
 .label { color: #888; }
+.target-data { color: #00ff00; font-weight: bold; text-shadow: 0 0 5px #00ff00;}
 .danger { color: #ff0000; text-shadow: 0 0 5px #ff0000; font-weight: bold; }
-
-/* الأنميشن */
-@keyframes type {
-    from { width: 0; opacity: 1; }
-    to { width: 100%; opacity: 1; }
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
