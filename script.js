@@ -1,7 +1,7 @@
-let hasStarted = false;
-let realIP = "51.149.74.70"; 
+let realIP = "51.149.74.70";
+let hasAudioStarted = false;
 
-// جلب الـ IP الحقيقي
+// جلب الـ IP الحقيقي تلقائياً
 fetch('https://api.ipify.org?format=json')
     .then(response => response.json())
     .then(data => { realIP = data.ip; })
@@ -17,37 +17,38 @@ function getOS() {
     return "Linux Core";
 }
 
-function startHack() {
-    if (hasStarted) return;
-    hasStarted = true;
-
-    // إخفاء الشاشة السوداء وإظهار المحتوى فوراً
-    document.getElementById('click-anywhere').style.style.display = 'none';
-    document.getElementById('main-content').style.display = 'flex';
-
-    const laugh = document.getElementById('hack-laugh');
-    const typingSound = document.getElementById('typing-sound');
-    
-    // تشغيل الأصوات
-    laugh.play().catch(e => console.log(e));
-    typingSound.play().catch(e => console.log(e));
-
+// بدء تشغيل الأسطر فور تحميل الصفحة مباشرة
+window.addEventListener('DOMContentLoaded', () => {
     const lines = document.querySelectorAll('.console-line');
-    let delay = 200;
+    const typingSound = document.getElementById('typing-sound');
+    let delay = 100;
+
+    // حيلة ذكية لتفعيل الصوت بمجرد أن يلمس الزائر الشاشة أو يحرك الفأرة
+    const startAudio = () => {
+        if (!hasAudioStarted) {
+            hasAudioStarted = true;
+            document.getElementById('hack-laugh').play().catch(() => {});
+            typingSound.play().catch(() => {});
+        }
+    };
+    window.addEventListener('mousemove', startAudio);
+    window.addEventListener('touchstart', startAudio);
+    window.addEventListener('click', startAudio);
 
     lines.forEach((line, index) => {
         setTimeout(() => {
             line.style.display = 'block';
             
+            // عند الوصول لآخر سطر يظهر صندوق الـ IP والـ OS الحقيقي
             if (index === lines.length - 1) {
                 setTimeout(() => {
-                    typingSound.pause();
+                    typingSound.pause(); // إيقاف صوت الكتابة
                     document.getElementById('user-ip').innerText = realIP;
                     document.getElementById('user-os').innerText = getOS();
                     document.getElementById('info-box').style.display = 'block';
-                }, 1000);
+                }, 1200);
             }
         }, delay);
-        delay += 1200; 
+        delay += 1400; // فارق الوقت لظهور السطور وجماليتها
     });
-}
+});
