@@ -6,8 +6,7 @@
     <title>SYSTEM BREACHED</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<!-- عند الضغط في أي مكان بالشاشة يبدأ المقلب والصوت فوراً -->
-<body onclick="startHack()">
+<body>
 
     <!-- فيديو الخلفية -->
     <video autoplay loop muted playsinline id="bg-video">
@@ -18,14 +17,14 @@
     <audio id="hack-laugh" src="https://www.soundjay.com/human/sounds/laughter-comic-1.mp3" preload="auto"></audio>
     <audio id="typing-sound" src="https://www.soundjay.com/communication/sounds/typewriter-key-1.mp3" loop preload="auto"></audio>
 
-    <!-- شاشة إرشادية مخفية لجعل المستخدم يتفاعل ويضغط في أي مكان -->
-    <div id="click-anywhere">
+    <!-- الشاشة السوداء: أضفنا أمر الضغط هنا مباشرة لتفادي أي مشكلة -->
+    <div id="click-anywhere" onclick="startHack()">
         <p>CLICK ANYWHERE TO INITIALIZE SYSTEM</p>
     </div>
 
     <!-- المحتوى الرئيسي للهاك -->
     <div class="container" id="main-content">
-        <!-- الصورة في المنتصف بدون إضاءة خلفية أو إطار أخضر بناءً على طلبك -->
+        <!-- الصورة المرفقة image_4712b8.png في المنتصف بدون خلفية مضيئة -->
         <img src="image_46b83e.png" alt="Logo" class="profile-img">
 
         <h1 class="glitch" data-text="SYSTEM INJECTED">SYSTEM INJECTED</h1>
@@ -35,10 +34,9 @@
             <p class="console-line">> Bypassing firewall... [SUCCESS]</p>
             <p class="console-line">> Fetching your live credentials...</p>
             
-            <!-- المعلومات الحقيقية للزائر -->
             <div class="info-box" id="info-box">
-                <p><span class="label">IP Address:</span> <span id="user-ip" class="target-data">جاري جلب الـ IP...</span></p>
-                <p><span class="label">System OS:</span> <span id="user-os" class="target-data">جاري الفحص...</span></p>
+                <p><span class="label">IP Address:</span> <span id="user-ip" class="target-data">Loading...</span></p>
+                <p><span class="label">System OS:</span> <span id="user-os" class="target-data">Checking...</span></p>
                 <p><span class="label">Status:</span> <span class="danger">COMPROMISED 100%</span></p>
             </div>
         </div>
